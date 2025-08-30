@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $remember = isset($_POST['remember']);
     
+    // Initialize PDO connection
+    $pdo = getDBConnection();
     // Validate input
     if (empty($email) || empty($password)) {
         $error = 'Please enter both email and password.';
